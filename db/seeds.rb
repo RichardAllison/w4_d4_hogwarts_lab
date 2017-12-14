@@ -1,24 +1,50 @@
 require_relative("../models/student")
+require_relative("../models/house")
 require('pry-byebug')
+
+house1 = House.new({
+  "name" => "Gryffindor",
+  "url" => "../public/gryffindor.jpg"
+  })
+house1.save()
+
+house2 = House.new({
+  "name" => "Ravenclaw",
+  "url" => "../public/ravenclaw.jpg"
+  })
+house2.save()
+
+house3 = House.new({
+  "name" => "Hufflepuff",
+  "url" => "../public/hufflepuff.jpg"
+  })
+house3.save()
+
+house4 = House.new({
+  "name" => "Slytherin",
+  "url" => "../public/slytherin.jpg"
+  })
+house4.save()
+
 
 student1 = Student.new({
   "first_name" => "Harry",
   "last_name" => "Potter",
-  "house" => "Gryffindor",
+  "house_id" => house1.id,
   "age" => 16
   })
 
 student2 = Student.new({
   "first_name" => "Ron",
   "last_name" => "Weasley",
-  "house" => "Gryffindor",
+  "house_id" => house1.id,
   "age" => 16
   })
 
 student3 = Student.new({
   "first_name" => "Hermione",
   "last_name" => "Granger",
-  "house" => "Gryffindor",
+  "house" => house1.id,
   "age" => 16
   })
 

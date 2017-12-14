@@ -2,13 +2,13 @@ require_relative("../db/sql_runner")
 require("pry-byebug")
 class Student
 
-  attr_reader :id, :first_name, :last_name, :house, :age
+  attr_reader :id, :first_name, :last_name, :house_id, :age
 
   def initialize(options)
     @id = options["id"].to_i if options["id"]
     @first_name = options["first_name"]
     @last_name = options["last_name"]
-    @house = options["house"]
+    @house_id = options["house_id"]
     @age = options["age"].to_i
   end
 
@@ -17,10 +17,14 @@ class Student
   end
 
   def save()
-    sql = "INSERT INTO students (first_name, last_name, house, age)
+    sql = "INSERT INTO students (first_name, last_name, house_id, age)
     VALUES ($1, $2, $3, $4) RETURNING id;"
-    values = [@first_name, @last_name, @house, @age]
+    values = [@first_name, @last_name, @house_id, @age]
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
+  end
+
+  def house()
+    
   end
 
   def Student.all()
@@ -36,5 +40,7 @@ class Student
     student_hash = result.first
     return Student.new(student_hash)
   end
+
+
 
 end
