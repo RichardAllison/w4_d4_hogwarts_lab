@@ -1,0 +1,22 @@
+<form action="/students" method="POST">
+
+  <label for="first-name-input">First name:</label>
+  <input id="first-name-input" type="text" name="first_name" placeholder="Enter first name" >
+
+  <label for="last-name-input">Last name:</label>
+  <input id="last-name-input" type="text" name="last_name" placeholder="Enter last name" >
+
+  <label for="age-input">Age:</label>
+  <input id="age-input" min="12" max="18" type="number" name="age" >
+
+  <label for="house-input">House:</label>
+  <select id="house-input" class="" name="house">
+    <option value="Gryffindor">Gryffindor</option>
+    <option value="Ravenclaw">Ravenclaw</option>
+    <option value="Huffelpuff">Huffelpuff</option>
+    <option value="Slytherin">Slytherin</option>
+
+  </select>
+
+  <input type="submit" value="Add Student">
+</form>

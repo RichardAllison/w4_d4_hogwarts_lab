@@ -1,5 +1,5 @@
 require_relative("../db/sql_runner")
-
+require("pry-byebug")
 class Student
 
   attr_reader :id, :first_name, :last_name, :house, :age
@@ -32,9 +32,9 @@ class Student
   def Student.find(id)
     sql = "SELECT * FROM students WHERE id = $1"
     values = [id]
-    student = SqlRunner.run(sql, values)
-    result = student.first
-    return result
+    result = SqlRunner.run(sql, values)
+    student_hash = result.first
+    return Student.new(student_hash)
   end
 
 end
