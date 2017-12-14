@@ -10,11 +10,17 @@
   <input id="age-input" min="12" max="18" type="number" name="age" >
 
   <label for="house-input">House:</label>
-  <select id="house-input" class="" name="house">
-    <option value="Gryffindor">Gryffindor</option>
-    <option value="Ravenclaw">Ravenclaw</option>
+  <select id="house-input" class="" name="house_id">
+    <% @houses.each do |house|  %>
+    <option value="<%= house.id %>"><%= house.name %></option>
+
+    <% end %>
+
+
+    <!-- <option value="Gryffindor">Gryffindor</option> -->
+    <!-- <option value="Ravenclaw">Ravenclaw</option>
     <option value="Huffelpuff">Huffelpuff</option>
-    <option value="Slytherin">Slytherin</option>
+    <option value="Slytherin">Slytherin</option> -->
 
   </select>
 

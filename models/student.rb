@@ -1,5 +1,6 @@
 require_relative("../db/sql_runner")
 require("pry-byebug")
+
 class Student
 
   attr_reader :id, :first_name, :last_name, :house_id, :age
@@ -8,7 +9,7 @@ class Student
     @id = options["id"].to_i if options["id"]
     @first_name = options["first_name"]
     @last_name = options["last_name"]
-    @house_id = options["house_id"]
+    @house_id = options["house_id"].to_i
     @age = options["age"].to_i
   end
 
@@ -24,7 +25,13 @@ class Student
   end
 
   def house()
-    
+    sql = "SELECT * FROM houses
+          WHERE id = $1"
+    values = [@house_id]
+    result = SqlRunner.run(sql, values)
+    house_hash = result.first
+    # binding.pry
+    return House.new(house_hash)
   end
 
   def Student.all()

@@ -1,5 +1,7 @@
 <h2>Student Details:</h2>
 <p>First name: <%= @student.first_name %></p>
 <p>Last name: <%= @student.last_name %></p>
-<p>House: <%= @student.house %></p>
+<p>House: <%= @student.house.name %></p>
 <p>Age: <%= @student.age %></p>
+
+<img src="<%= @student.house.url %>" >

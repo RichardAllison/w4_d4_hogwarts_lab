@@ -1,1 +1,4 @@
-<p>You have successfully enrolled <%= @new_student.full_name %> into <%= @new_student.house %></p>
+<p>You have successfully enrolled <%= @new_student.full_name %>
+  into <%= @new_student.house.name %></p>
+
+  <img src="<%= @new_student.house.url %>" >
