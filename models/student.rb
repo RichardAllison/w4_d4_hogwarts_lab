@@ -23,5 +23,18 @@ class Student
     @id = SqlRunner.run(sql, values)[0]["id"].to_i
   end
 
+  def Student.all()
+    student_hashes = SqlRunner.run("SELECT * FROM students;")
+    students = student_hashes.map { |student_hash| Student.new(student_hash) }
+    return students
+  end
+
+  def Student.find(id)
+    sql = "SELECT * FROM students WHERE id = $1"
+    values = [id]
+    student = SqlRunner.run(sql, values)
+    result = student.first
+    return result
+  end
 
 end
